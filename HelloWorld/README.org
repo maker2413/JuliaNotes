@@ -1,0 +1,7 @@
+#+TITLE: Hello World
+
+Hello world, the most basic of programs, the intro to all languages. In Julia
+Hello World Can be achieved with something so simple it resembles Python:
+#+begin_src julia
+  println("Hello World!")
+#+end_src
