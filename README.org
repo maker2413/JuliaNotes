@@ -9,4 +9,5 @@ tense. So far I have been following this guide:
 [[https://www.youtube.com/watch?v=KlorfxsdWDw]].
 
 * Julia Fundamentals
-  - 1. :: [[./HelloWorld/README.org][Hello World]]
+  - 1. :: [[./01HelloWorld/README.org][Hello World]]
+  - 2. :: [[./02Types/README.org][Types]]
