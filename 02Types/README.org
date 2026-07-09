@@ -1,0 +1,75 @@
+#+TITLE: Types
+#+PROPERTY: header-args:julia+ :tangle types.jl
+#+PROPERTY: header-args:julia+ :results output
+#+PROPERTY: header-args:julia+ :shebang "#!/usr/bin/env julia"
+
+This section will just go over the various [[https://notes.ethancpost.com/data_types.html][types]] present in Julia. Julia for the
+most part has the "standard" set of primitive types you would expect a language
+to have.
+
+* Booleans
+  Julia of course of has booleans like many languages so I only want to go over
+  the very basics and some of it quirks. To begin with Julia uses lower case
+  letters for true and false:
+  #+begin_src julia :exports none :results none
+    true
+    false
+  #+end_src
+
+  One of the quirks of Julia that I haven't seen in many other languages is that
+  when working with boolean operators you have two different ways to do and/org
+  logic gates. You have the standard ("short circuiting") logic gates:
+  #+name: short_circuit
+  #+begin_src julia :exports both :results output
+    # Short circuiting AND
+    2 == 2 && 3 > 2
+
+    # Short circuiting OR
+    4 == 2 || 3 > 2
+  #+end_src
+
+  These both evaluate to ~true~:
+  #+RESULTS: short_circuit
+  : true
+  : true
+
+  You also have a none short circuiting, "bitwise", logic gate:
+  #+name: bitwise
+  #+begin_src julia :exports both :results output
+    # Bitwise AND
+    (2 == 2) & (3 > 2)
+
+    #=
+    These are wrapped in parenthesis because bitwise operators
+    have their place in operator precedence. Don't worry about
+    this for now.
+    =# 
+
+    # Bitwise OR
+    (4 == 2) | (3 > 2)
+  #+end_src
+
+  These also both evaluate to ~true~:
+  #+RESULTS: bitwise
+  : true
+  : true
+
+  Short circuiting logic gates will completely skip checking the second value if
+  the first does or does not fulfill the requirements of the logic gate. This
+  means that for an AND gate the second value will only be evaluated if the
+  first is already ~true~ and in the case of the OR gate this means that there is
+  no need to check the second value if the first is already ~true~. The bitwise
+  logic gates do not have this efficiency and will always evaluate both
+  statements.
+
+  Finally it is worth noting that in Julia boolean values have there own numeric
+  values:
+  #+name: boolean_math
+  #+begin_src julia
+    # true = 1 and false = 0
+    false + true + true
+  #+end_src
+
+  This gives us =2=:
+  #+RESULTS: boolean_math
+  : 2
