@@ -8,10 +8,13 @@ most part has the "standard" set of primitive types you would expect a language
 to have.
 
 * Booleans
+  #+begin_src julia :exports none :results none
+    # ==========Booleans==========
+  #+end_src
   Julia of course of has booleans like many languages so I only want to go over
   the very basics and some of it quirks. To begin with Julia uses lower case
   letters for true and false:
-  #+begin_src julia :exports none :results none
+  #+begin_src julia :results none
     true
     false
   #+end_src
@@ -65,7 +68,7 @@ to have.
   Finally it is worth noting that in Julia boolean values have there own numeric
   values:
   #+name: boolean_math
-  #+begin_src julia
+  #+begin_src julia :exports both :results output
     # true = 1 and false = 0
     false + true + true
   #+end_src

@@ -17,12 +17,12 @@ This results in:
 Since this lesson would be too short if we just printed a line let's also go
 over some of the other basic things to fill this page more. Let's begin with the
 simplest of things... Comments!:
-#+begin_src julia :exports none :results none
+#+begin_src julia :results none
   # This is a single line comment.
 #+end_src
 
 We also have multi line comments:
-#+begin_src julia :exports none :results none
+#+begin_src julia :results none
   #=
   This is a multi line comment.
   These are made with '#=' and '=#'.
@@ -35,7 +35,7 @@ have ~println~ which prints out the given value and automatically adds a newline
 character (~\n~). We can also interpolate strings in Julia with ~$~. To try
 this out let's setup some quick variable, which we will discuss more later:
 #+name: vars
-#+begin_src julia :exports none :results none :session interpolation
+#+begin_src julia :results none :session interpolation
   # Setting up some variables
   first = "Dave"
   last = "Davidson"
