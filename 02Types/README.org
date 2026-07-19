@@ -76,3 +76,38 @@ to have.
   This gives us =2=:
   #+RESULTS: boolean_math
   : 2
+
+* Numbers
+  #+begin_src julia :exports none :results none
+    # ==========Numbers==========
+  #+end_src
+  Being that Julia is an incredibly high level programming language attempting
+  to bridge the gap between programmers and thinkers it may have more data types
+  than you are familiar with in a traditional programming language. This section
+  will go over the various [[https://docs.julialang.org/en/v1/base/numbers/][number]] data types. We won't go over each individual
+  number data type because of a lot of them are repeats, but we will go over the
+  basics.
+
+  It is worth noting at this point if you ever want to see the type of value in
+  Julia you can use ~typeof()~:
+  #+name: int
+  #+begin_src julia :exports both :results output
+    # Int64
+    typeof(-3)
+  #+end_src
+
+  We get:
+  #+RESULTS: int
+  : Int64
+
+  By default in Julia numbers, like =-3= default to 64bit integers. We also have
+  floats:
+  #+name: float
+  #+begin_src julia :exports both :results output
+    # Float64
+    typeof(1.2)
+  #+end_src
+
+  Which Julia also default to 64 bit:
+  #+RESULTS: float
+  : Float64

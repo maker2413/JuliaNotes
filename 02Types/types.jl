@@ -24,3 +24,11 @@ this for now.
 
 # true = 1 and false = 0
 false + true + true
+
+# ==========Numbers==========
+
+# Int64
+typeof(-3)
+
+# Float64
+typeof(1.2)
