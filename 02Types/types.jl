@@ -32,3 +32,33 @@ typeof(-3)
 
 # Float64
 typeof(1.2)
+
+example::Float32 = 1.2
+
+typeof(example)
+
+0.1 + 0.2
+
+typeof(1/3)
+
+typeof(1//3)
+
+1//3 + 1//7
+
+typeof(pi)
+pi
+
+round(pi; digits=5)
+
+1000000 == 1_000_000
+
+sqrt(4)
+typeof(sqrt(4))
+
+typeof(4/2)
+
+div(4, 2)
+typeof(div(4,2))
+
+div(5, 2)
+typeof(div(5,2))

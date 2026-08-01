@@ -111,3 +111,153 @@ to have.
   Which Julia also default to 64 bit:
   #+RESULTS: float
   : Float64
+
+  64 bit is just what Julia defaults to, however you can use smaller bit types
+  like ~Int32~ or ~Float32~. Smaller bit data types are less precise, but are
+  computed faster making programs run more efficient.
+
+  When declaring a variable you can also declare the datatype of the variable
+  using ~::~:
+  #+name: float32
+  #+begin_src julia :exports both :results output
+    example::Float32 = 1.2
+
+    typeof(example)
+  #+end_src
+
+  This gives show the type of our ~example~ variable is ~Float32~:
+  #+RESULTS: float32
+  : Float32
+
+  More precision can make a big difference when it comes to floats because
+  computers aren't all that accurate when it comes to floating point math:
+  #+name: precision
+  #+begin_src julia :exports both :results output
+    0.1 + 0.2
+  #+end_src
+
+  This gives us:
+  #+RESULTS: precision
+  : 0.30000000000000004
+
+* Rational Numbers
+  Julia also has support for rational numbers. If you were to do the following
+  you would get a Float64 like above:
+  #+name: nonrational
+  #+begin_src julia :exports both :results output
+    typeof(1/3)
+  #+end_src
+
+  See:
+  #+RESULTS: nonrational
+  : Float64
+
+  In Julia though we also have access to rational numbers. If we wanted to have
+  a true fraction of =1= over =3= we can use ~//~:
+  #+name: rational
+  #+begin_src julia :exports both :results output
+    typeof(1//3)
+  #+end_src
+
+  This gives us a Rational of Int64:
+  #+RESULTS: rational
+  : Rational{Int64}
+
+  You can even perform basic math operations with Rational numbers just like you
+  would with any traditional number:
+  #+name: rationalmath
+  #+begin_src julia :exports both :results output
+    1//3 + 1//7
+  #+end_src
+
+  This gives us:
+  #+RESULTS: rationalmath
+  : 10//21
+
+* Irrational Numbers
+  Of course if Julia supports Rational numbers you would hope it also supports
+  Irrational numbers, and it does! The most famous irrational number, pi, is
+  even built directly into Julia:
+  #+name: pi
+  #+begin_src julia :exports both :results output
+    typeof(pi)
+    pi
+  #+end_src
+
+  See:
+  #+RESULTS: pi
+  : Irrational{:π}
+  : π = 3.1415926535897...
+
+* Misc
+  We will cover functions later, but it is possibly cool at this point to know
+  that one of Julia's built in functions, ~round~, can be provided a keyword
+  argument (denoted by the semicolon) to specify how many digits you want the
+  result to be. This can be quite powerful when combined with irrational
+  numbers, like =pi=:
+  #+name: roundpi
+  #+begin_src julia :exports both :results output
+    round(pi; digits=5)
+  #+end_src
+
+  This gives us 5 decimal places of =pi=:
+  #+RESULTS: roundpi
+  : 3.14159
+
+  I also would just like to mention it here since we have dipped our toes into
+  the topic of math, but in Julia when working with large numbers you can use
+  ~_~ to make your numbers more readable:
+  #+name: largenumber
+  #+begin_src julia :exports both :results output
+    1000000 == 1_000_000
+  #+end_src
+
+  We can see that both of these numbers are the same even though the right one
+  is more readable:
+  #+RESULTS: largenumber
+  : true
+
+  And since we are rambling about some of the misc features of Julia I'd like to
+  also show the ~sqrt~ function which gives the square root a number:
+  #+name: sqrt
+  #+begin_src julia :exports both :results output
+    sqrt(4)
+    typeof(sqrt(4))
+  #+end_src
+
+  This gives us:
+  #+RESULTS: sqrt
+  : 2.0
+  : Float64
+
+  You can see that this gives us the square root of =4=, but it is also of type
+  ~Float64~. That is because Julia use just-in-time compilation, meaning that as
+  your program is run it is compiled. For this process Julia needs to know how
+  much memory to allocate and will often assume the worst case scenario, in this
+  case a ~Float64~. This also happens when we divide integers:
+  #+name: division
+  #+begin_src julia :exports both :results output
+    typeof(4/2)
+  #+end_src
+
+  See:
+  #+RESULTS: division
+  : Float64
+
+  Julia also has a built in function that will return the quotient of a division
+  operation and for this reason will always return an Integer:
+  #+name: div
+  #+begin_src julia :exports both :results output
+    div(4, 2)
+    typeof(div(4,2))
+
+    div(5, 2)
+    typeof(div(5,2))
+  #+end_src
+
+  The quotient of both of these operations is =2= of type ~Int64~:
+  #+RESULTS: div
+  : 2
+  : Int64
+  : 2
+  : Int64
