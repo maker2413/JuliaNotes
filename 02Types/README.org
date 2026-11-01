@@ -189,6 +189,87 @@ to have.
   : Irrational{:π}
   : π = 3.1415926535897...
 
+* Characters and Strings
+  Julia has support for characters and strings like most languages. Characters
+  are denoted by single quotes and strings are denoted by double quotes:
+  #+name: charsandstrings
+  #+begin_src julia :exports both :results output
+    typeof('a')
+    typeof("b")
+
+    typeof("Hello World!")
+  #+end_src
+
+  These represent:
+  #+RESULTS: charsandstrings
+  : Char
+  : String
+  : String
+
+  Julia also lets you escape double quotes and signify new lines with ~\n~:
+  #+name: stringescapes
+  #+begin_src julia :exports both :results output
+    print("\"Hello\"\nWorld!")
+  #+end_src
+
+  This results in:
+  #+RESULTS: stringescapes
+  : "Hello"
+  : World!
+
+  You can also signify tabs with ~\t~. Julia also lets you concatenate strings
+  with ~*~ and you can interpolate strings with ~$~:
+  #+name: concatenate
+  #+begin_src julia :exports both :results output
+    s1 = "Hello,"
+    s2 = " World!"
+
+    println(s1 * s2)
+    println("$s1 Steve!")
+  #+end_src
+
+  This gives us:
+  #+RESULTS: concatenate
+  : "Hello,"
+  : " World!"
+  : Hello, World!
+  : Hello, Steve!
+
+  Julia is also unique with the fact that it supports unicode characters and
+  emojis unlike most of other programming languages. You can insert these into
+  your code by typing a backslash, followed by the name, and followed by
+  pressing tab. For emojis you have to put the name in colons:
+  #+name: unicode
+  #+begin_src julia
+    # \alpha<tab>
+    typeof('α')
+
+    # \:dog:<tab>
+    typeof('🐶')
+  #+end_src
+
+  Both of these are characters:
+  #+RESULTS: unicode
+  : Char
+  : Char
+
+  It is a good rule of thumb to not fill your code with unicode characters and
+  emojis, but it is a loose standard in Julia to use them for well known numbers
+  in mathematics:
+  #+name: euler
+  #+begin_src julia
+    # \pi<tab>
+    π
+
+    # \euler<tab>
+    ℯ
+  #+end_src
+
+  See:
+  #+RESULTS: euler
+  : π = 3.1415926535897...
+  : ℯ = 2.7182818284590...
+
 * Misc
   We will cover functions later, but it is possibly cool at this point to know
   that one of Julia's built in functions, ~round~, can be provided a keyword

@@ -48,6 +48,31 @@ typeof(1//3)
 typeof(pi)
 pi
 
+typeof('a')
+typeof("b")
+
+typeof("Hello World!")
+
+print("\"Hello\"\nWorld!")
+
+s1 = "Hello,"
+s2 = " World!"
+
+println(s1 * s2)
+println("$s1 Steve!")
+
+# \alpha<tab>
+typeof('α')
+
+# \:dog:<tab>
+typeof('🐶')
+
+# \pi<tab>
+π
+
+# \euler<tab>
+ℯ
+
 round(pi; digits=5)
 
 1000000 == 1_000_000
