@@ -11,3 +11,4 @@ tense. So far I have been following this guide:
 * Julia Fundamentals
   - 1. :: [[./01HelloWorld/README.org][Hello World]]
   - 2. :: [[./02Types/README.org][Types]]
+  - 3. :: [[./03DataStructures/README.org][Data Structures]]

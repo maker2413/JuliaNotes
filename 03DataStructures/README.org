@@ -1,0 +1,29 @@
+#+TITLE: Data Structures
+#+PROPERTY: header-args:julia+ :tangle datastructures.jl
+#+PROPERTY: header-args:julia+ :results output
+#+PROPERTY: header-args:julia+ :shebang "#!/usr/bin/env julia"
+
+This section will go over the various [[https://notes.ethancpost.com/data_structures.html][data structures]] present in Julia. Julia
+has many of the "standard" data structures that other languages have.
+
+* Arrays
+  In Julia an array can have any number of dimensions. In Julia a one
+  dimensional array is called a vector, or a column vector. A column vector is
+  represented with square brackets and between the square brackets your data is
+  separated by columns, these pieces of data are called elements:
+  #+name: column_vector
+  #+begin_src julia :exports both :results output
+    col_vec = [1, 2, 3]
+
+    typeof(col_vec)
+  #+end_src
+
+  We can see that we have a 3 element vector that is of the type
+  ~Vector{Int64}~. In Julia the ~Vector~ data type is an alias for a 1
+  dimensional array:
+  #+RESULTS: column_vector
+  : 3-element Vector{Int64}:
+  :  1
+  :  2
+  :  3
+  : Vector{Int64} (alias for Array{Int64, 1})
